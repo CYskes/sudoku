@@ -71,20 +71,20 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>T:\Dev\Libraries\SDL2-2.26.4\include;$(IncludePath)</IncludePath>
-    <LibraryPath>T:\Dev\Libraries\SDL2-2.26.4\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Dev\Libraries\SDL2-2.26.4\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Dev\Libraries\SDL2-2.26.4\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>T:\Dev\Libraries\SDL2-2.26.4\include;$(IncludePath)</IncludePath>
-    <LibraryPath>T:\Dev\Libraries\SDL2-2.26.4\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Dev\Libraries\SDL2-2.26.4\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Dev\Libraries\SDL2-2.26.4\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>T:\Dev\Libraries\SDL2-2.26.4\include;$(IncludePath)</IncludePath>
-    <LibraryPath>T:\Dev\Libraries\SDL2-2.26.4\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Dev\Libraries\SDL2-2.26.4\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Dev\Libraries\SDL2-2.26.4\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>T:\Dev\Libraries\SDL2-2.26.4\include;$(IncludePath)</IncludePath>
-    <LibraryPath>T:\Dev\Libraries\SDL2-2.26.4\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Dev\Libraries\SDL2-2.26.4\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Dev\Libraries\SDL2-2.26.4\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -156,7 +156,7 @@
     <ClCompile Include="imgui_widgets.cpp" />
     <ClCompile Include="RunApp.cpp" />
     <ClCompile Include="Sudoku.cpp" />
-    <ClCompile Include="Sudoku.h" />
+    <ClInclude Include="Sudoku.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="LICENSE.txt" />
