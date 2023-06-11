@@ -116,6 +116,8 @@ int main(int argc, char* args[])
         ImGui_ImplSDL2_NewFrame();
         ImGui::NewFrame();
 
+        sudoku::init();
+
         if (playSudoku) {
             sudoku::runSudoku(mainRun);
         }
