@@ -43,7 +43,7 @@ void sudoku::runSudoku(bool mainRun)
     }
     if (ImGui::BeginPopup("entry")) {
         if (ImGui::Button("1", buttonSize)) {
-            submission.at(key) = (std::string("1") + "###" + (char)(48 + key));
+            //submission.at(key) = (std::string("1") + "###" + (char)(48 + key));
             ImGui::CloseCurrentPopup();
             dumbdumb = false;
         }
@@ -76,6 +76,8 @@ void sudoku::squareOne(bool& entry, std::string& submission, int& key)
     ImGui::End();
 }
 
+
+// Added buttonCy to help with ID key issues, swap all buttons to ButtonCy
 void sudoku::squareTwo(bool& entry, std::string& submission, int& key)
 {
     ImGui::SetNextWindowSize(squareSize);
