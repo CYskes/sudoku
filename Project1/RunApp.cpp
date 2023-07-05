@@ -94,9 +94,6 @@ int main(int argc, char* args[])
     ImGui_ImplOpenGL3_Init(glsl_version);
 
     
-
-    bool show_demo_window = true;
-    bool show_another_window = false;
     bool playSudoku = true;
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
@@ -122,10 +119,7 @@ int main(int argc, char* args[])
             sudoku::runSudoku(mainRun);
         }
 
-        imguiDebug(show_demo_window, io);
-
-        if (show_demo_window)
-            ImGui::ShowDemoWindow(&show_demo_window);
+        //imguiDebug(show_demo_window, io);
 
         // Rendering
         ImGui::Render();
