@@ -96,7 +96,7 @@ int main(int argc, char* args[])
     
     bool playSudoku = true;
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
-
+    sudoku::init();
     bool mainRun = true;
 
     while (mainRun) {
@@ -113,7 +113,7 @@ int main(int argc, char* args[])
         ImGui_ImplSDL2_NewFrame();
         ImGui::NewFrame();
 
-        sudoku::init();
+        
 
         if (playSudoku) {
             sudoku::runSudoku(mainRun);

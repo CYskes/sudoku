@@ -9,7 +9,8 @@
 
 bool dumbdumb = false;
 char key{};
-std::map<char, std::string>& submission{ sudoku::level1::box1 };
+auto* submission = &sudoku::level1::box2;
+
 
 void sudoku::runSudoku(bool mainRun)
 {
@@ -17,65 +18,66 @@ void sudoku::runSudoku(bool mainRun)
     
     squareOne(dumbdumb, submission, key);
     squareTwo(dumbdumb, submission, key);
-    squareThree(dumbdumb,submission, key);
+
+    /*squareThree(dumbdumb,submission, key);
     squareFour(dumbdumb, submission, key);
     squareFive(dumbdumb, submission, key);
     squareSix(dumbdumb, submission, key);
     squareSeven(dumbdumb,submission, key);
     squareEight(dumbdumb, submission, key);
-    squareNine(dumbdumb, submission, key);
-
+    squareNine(dumbdumb, submission, key);*/
+    
 
     if (dumbdumb) {
         ImGui::OpenPopup("entry");
     }
     if (ImGui::BeginPopup("entry")) {
         if (ImGui::Button("1", buttonSize)) {
-            submission.at(key) = "1";
+            (*submission).at(key) = "1";
             ImGui::CloseCurrentPopup();
             dumbdumb = false;
         }
         ImGui::SameLine();
         if (ImGui::Button("2", buttonSize)) {
-            submission.at(key) = "2";
+            (*submission).at(key) = "2";
             ImGui::CloseCurrentPopup();
             dumbdumb = false;
         }
         ImGui::SameLine();
         if (ImGui::Button("3", buttonSize)) {
-            submission.at(key) = "3";
+            (*submission).at(key) = "3";
             ImGui::CloseCurrentPopup();
             dumbdumb = false;
         }
         if (ImGui::Button("4", buttonSize)) {
-            submission.at(key) = "4";
+            (*submission).at(key) = "4";
             ImGui::CloseCurrentPopup();
             dumbdumb = false;
         }
         ImGui::SameLine();
         if (ImGui::Button("5", buttonSize)) {
-            submission.at(key) = "5";
+            (*submission).at(key) = "5";
             ImGui::CloseCurrentPopup();
             dumbdumb = false;
         }
         ImGui::SameLine();
         if (ImGui::Button("6", buttonSize)) {
-            submission.at(key) = "6";
+            (*submission).at(key) = "6";
             ImGui::CloseCurrentPopup();
             dumbdumb = false;
         }
         if (ImGui::Button("7", buttonSize)) {
-            submission.at(key) = "7";
+            (*submission).at(key) = "7";
             ImGui::CloseCurrentPopup();
             dumbdumb = false;
         }ImGui::SameLine();
         if (ImGui::Button("8", buttonSize)) {
-            submission.at(key) = "8";
+            (*submission).at(key) = "8";
             ImGui::CloseCurrentPopup();
             dumbdumb = false;
         }ImGui::SameLine();
         if (ImGui::Button("9", buttonSize)) {
-            submission.at(key) = "9";
+            (*submission).at(key) = "9";
             ImGui::CloseCurrentPopup();
             dumbdumb = false;
         }
@@ -85,7 +87,7 @@ void sudoku::runSudoku(bool mainRun)
 
 
 
-void sudoku::squareOne(bool& entry, std::map<char, std::string> submission, char& key)
+void sudoku::squareOne(bool& entry, std::map<char, std::string>* submission, char& key)
 {
     ImGui::SetNextWindowSize(squareSize);
     ImGui::SetNextWindowPos(ImVec2(0, 0));
@@ -93,7 +95,7 @@ void sudoku::squareOne(bool& entry, std::map<char, std::string> submission, char
 
     // Button 1-1
     if (ImGui::Button((sudoku::level1::box1.at('a')).c_str(), "a", buttonSize)) {
-        submission = sudoku::level1::box1;
+        submission = (&sudoku::level1::box1);
         key = 'a';
         entry = true;
     }
@@ -101,7 +103,7 @@ void sudoku::squareOne(bool& entry, std::map<char, std::string> submission, char
     // Button 1-2
     ImGui::SameLine();
     if (ImGui::Button((sudoku::level1::box1.at('b')).c_str(), "b", buttonSize)) {
-        submission = sudoku::level1::box1;
+        submission = (&sudoku::level1::box1);
         key = 'b';
         entry = true;
     }
@@ -120,7 +122,7 @@ void sudoku::squareOne(bool& entry, std::map<char, std::string> submission, char
     // Button 1-5
     ImGui::SameLine();
     if (ImGui::Button((sudoku::level1::box1.at('e')).c_str(), "e", buttonSize)) {
-        submission = sudoku::level1::box1;
+        submission = (&sudoku::level1::box1);
         key = 'e';
         entry = true;
     }
@@ -128,14 +130,14 @@ void sudoku::squareOne(bool& entry, std::map<char, std::string> submission, char
     // Button 1-6
     ImGui::SameLine();
     if (ImGui::Button((sudoku::level1::box1.at('f')).c_str(), "f", buttonSize)) {
-        submission = sudoku::level1::box1;
+        submission = (&sudoku::level1::box1);
         key = 'f';
         entry = true;
     }
 
     // Button 1-7
     if (ImGui::Button((sudoku::level1::box1.at('g')).c_str(), "g", buttonSize)) {
-        submission = sudoku::level1::box1;
+        submission = (&sudoku::level1::box1);
         key = 'g';
         entry = true;
     }
@@ -143,7 +145,7 @@ void sudoku::squareOne(bool& entry, std::map<char, std::string> submission, char
     // Button 1-8
     ImGui::SameLine();
     if (ImGui::Button((sudoku::level1::box1.at('h')).c_str(), "h", buttonSize)) {
-        submission = sudoku::level1::box1;
+        submission = (&sudoku::level1::box1);
         key = 'h';
         entry = true;
     }
@@ -157,7 +159,7 @@ void sudoku::squareOne(bool& entry, std::map<char, std::string> submission, char
 }
 
 
-void sudoku::squareTwo(bool& entry, std::map<char, std::string> submission, char& key)
+void sudoku::squareTwo(bool& entry, std::map<char, std::string>* submission, char& key)
 {
     ImGui::SetNextWindowSize(squareSize);
     ImGui::SetNextWindowPos(ImVec2(windowHW * 1 / 3, windowHW * 0));
@@ -165,7 +167,7 @@ void sudoku::squareTwo(bool& entry, std::map<char, std::string> submission, char
     
     // Button 2-1
     if (ImGui::Button((sudoku::level1::box2.at('a')).c_str(), "a", buttonSize)) {
-        submission = sudoku::level1::box2;
+        submission = &sudoku::level1::box2;
         key = 'a';
         entry = true;
     }
@@ -179,7 +181,7 @@ void sudoku::squareTwo(bool& entry, std::map<char, std::string> submission, char
     // Button 2-3
     ImGui::SameLine();
     if (ImGui::Button((sudoku::level1::box2.at('c')).c_str(), "c", buttonSize)) {
-        submission = sudoku::level1::box2;
+        submission = &sudoku::level1::box2;
         key = 'c';
         entry = true;
     }
@@ -201,7 +203,7 @@ void sudoku::squareTwo(bool& entry, std::map<char, std::string> submission, char
 
     // Button 2-7
     if (ImGui::Button((sudoku::level1::box2.at('g')).c_str(), "g", buttonSize)) {
-        submission = sudoku::level1::box2;
+        submission = &sudoku::level1::box2;
         key = 'g';
         entry = true;
     }
@@ -218,6 +220,7 @@ void sudoku::squareTwo(bool& entry, std::map<char, std::string> submission, char
     ImGui::End();
 }
 
+/*
 void sudoku::squareThree(bool& x, std::map<char, std::string>& submission, char& key) {
     ImGui::SetNextWindowSize(squareSize);
     ImGui::SetNextWindowPos(ImVec2(windowHW * 2 / 3, windowHW * 0));
@@ -245,6 +248,7 @@ void sudoku::squareFour(bool& x, std::map<char, std::string>& submission, char& 
     ImGui::SameLine(); ImGui::Button("5", ImVec2(buttonHW, buttonHW));
     ImGui::SameLine(); ImGui::Button("6", ImVec2(buttonHW, buttonHW));
     ImGui::Button("7", ImVec2(buttonHW, buttonHW));
+    submission = sudoku::level1::box3;
     ImGui::SameLine(); ImGui::Button("8", ImVec2(buttonHW, buttonHW));
     ImGui::SameLine(); ImGui::Button("9", ImVec2(buttonHW, buttonHW));
     ImGui::End();
@@ -329,6 +333,7 @@ void sudoku::squareNine(bool& x, std::map<char, std::string>& submission, char& 
     ImGui::SameLine(); ImGui::Button("9", ImVec2(buttonHW, buttonHW));
     ImGui::End();
 }
+*/
 
 void sudoku::init()
 {
