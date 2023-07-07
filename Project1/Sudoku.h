@@ -5,8 +5,8 @@
 namespace sudoku {
 	void runSudoku(bool mainRun);
 
-	void squareOne(bool& x, std::map<char, std::string>* submission, char& key);
-	void squareTwo(bool& x, std::map<char, std::string>* submission, char& key);
+	void squareOne(bool& x, std::map<char, std::string>*& submission, char& key);
+	void squareTwo(bool& x, std::map<char, std::string>*& submission, char& key);
 	void squareThree(bool& x, std::map<char, std::string>& submission, char& key);
 	void squareFour(bool& x, std::map<char, std::string>& submission, char& key);
 	void squareFive(bool& x, std::map<char, std::string>& submission, char& key);
