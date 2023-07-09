@@ -7,13 +7,13 @@ namespace sudoku {
 
 	void squareOne(bool& x, std::map<char, std::string>*& submission, char& key);
 	void squareTwo(bool& x, std::map<char, std::string>*& submission, char& key);
-	void squareThree(bool& x, std::map<char, std::string>& submission, char& key);
-	void squareFour(bool& x, std::map<char, std::string>& submission, char& key);
-	void squareFive(bool& x, std::map<char, std::string>& submission, char& key);
-	void squareSix(bool& x, std::map<char, std::string>& submission, char& key);
-	void squareSeven(bool& x, std::map<char, std::string>& submission, char& key);
-	void squareEight(bool& x, std::map<char, std::string>& submission, char& key);
-	void squareNine(bool& x, std::map<char, std::string>& submission, char& key);
+	void squareThree(bool& x, std::map<char, std::string>*& submission, char& key);
+	void squareFour(bool& x, std::map<char, std::string>*& submission, char& key);
+	void squareFive(bool& x, std::map<char, std::string>*& submission, char& key);
+	void squareSix(bool& x, std::map<char, std::string>*& submission, char& key);
+	void squareSeven(bool& x, std::map<char, std::string>*& submission, char& key);
+	void squareEight(bool& x, std::map<char, std::string>*& submission, char& key);
+	void squareNine(bool& x, std::map<char, std::string>*& submission, char& key);
 
 	void init();
 
