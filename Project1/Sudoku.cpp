@@ -31,7 +31,7 @@ void sudoku::runSudoku(bool mainRun)
     squareFour(dumbdumb, submission, key);
     squareFive(dumbdumb, submission, key);
     squareSix(dumbdumb, submission, key);
-    squareSeven(dumbdumb,submission, key);
+    squareSeven(dumbdumb, submission, key);
     squareEight(dumbdumb, submission, key);
     squareNine(dumbdumb, submission, key);
     
@@ -721,110 +721,16 @@ void sudoku::init()
 {
     std::string a;
     a = " ";
-    /* Tried using a for loop, think it was broken as map was throwing out of range exceptions.
-    I have switched to explicit initialization.  Hopefull it works, then i can fix the loop later.
 
-
-    * for(char i = 'a'; i < 109; i++)
-    * sudoku::level1::box1.insert(std::make_pair(i, a));
-    sudoku::level1::box2.insert(std::make_pair(i, a));
-    sudoku::level1::box3.insert(std::make_pair(i, a));
-    sudoku::level1::box4.insert(std::make_pair(i, a));
-    sudoku::level1::box5.insert(std::make_pair(i, a));
-    sudoku::level1::box6.insert(std::make_pair(i, a));
-    sudoku::level1::box7.insert(std::make_pair(i, a));
-    sudoku::level1::box8.insert(std::make_pair(i, a));
-    sudoku::level1::box9.insert(std::make_pair(i, a));
-    
-    */
-
-    sudoku::level1::box1.insert(std::make_pair('a', a));
-    sudoku::level1::box1.insert(std::make_pair('b', a));
-    sudoku::level1::box1.insert(std::make_pair('c', a));
-    sudoku::level1::box1.insert(std::make_pair('d', a));
-    sudoku::level1::box1.insert(std::make_pair('e', a));
-    sudoku::level1::box1.insert(std::make_pair('f', a));
-    sudoku::level1::box1.insert(std::make_pair('g', a));
-    sudoku::level1::box1.insert(std::make_pair('h', a));
-    sudoku::level1::box1.insert(std::make_pair('i', a));
-
-    sudoku::level1::box2.insert(std::make_pair('a', a));
-    sudoku::level1::box2.insert(std::make_pair('b', a));
-    sudoku::level1::box2.insert(std::make_pair('c', a));
-    sudoku::level1::box2.insert(std::make_pair('d', a));
-    sudoku::level1::box2.insert(std::make_pair('e', a));
-    sudoku::level1::box2.insert(std::make_pair('f', a));
-    sudoku::level1::box2.insert(std::make_pair('g', a));
-    sudoku::level1::box2.insert(std::make_pair('h', a));
-    sudoku::level1::box2.insert(std::make_pair('i', a));
-
-    sudoku::level1::box3.insert(std::make_pair('a', a));
-    sudoku::level1::box3.insert(std::make_pair('b', a));
-    sudoku::level1::box3.insert(std::make_pair('c', a));
-    sudoku::level1::box3.insert(std::make_pair('d', a));
-    sudoku::level1::box3.insert(std::make_pair('e', a));
-    sudoku::level1::box3.insert(std::make_pair('f', a));
-    sudoku::level1::box3.insert(std::make_pair('g', a));
-    sudoku::level1::box3.insert(std::make_pair('h', a));
-    sudoku::level1::box3.insert(std::make_pair('i', a));
-
-    sudoku::level1::box4.insert(std::make_pair('a', a));
-    sudoku::level1::box4.insert(std::make_pair('b', a));
-    sudoku::level1::box4.insert(std::make_pair('c', a));
-    sudoku::level1::box4.insert(std::make_pair('d', a));
-    sudoku::level1::box4.insert(std::make_pair('e', a));
-    sudoku::level1::box4.insert(std::make_pair('f', a));
-    sudoku::level1::box4.insert(std::make_pair('g', a));
-    sudoku::level1::box4.insert(std::make_pair('h', a));
-    sudoku::level1::box4.insert(std::make_pair('i', a));
-
-    sudoku::level1::box5.insert(std::make_pair('a', a));
-    sudoku::level1::box5.insert(std::make_pair('b', a));
-    sudoku::level1::box5.insert(std::make_pair('c', a));
-    sudoku::level1::box5.insert(std::make_pair('d', a));
-    sudoku::level1::box5.insert(std::make_pair('e', a));
-    sudoku::level1::box5.insert(std::make_pair('f', a));
-    sudoku::level1::box5.insert(std::make_pair('g', a));
-    sudoku::level1::box5.insert(std::make_pair('h', a));
-    sudoku::level1::box5.insert(std::make_pair('i', a));
-
-    sudoku::level1::box6.insert(std::make_pair('a', a));
-    sudoku::level1::box6.insert(std::make_pair('b', a));
-    sudoku::level1::box6.insert(std::make_pair('c', a));
-    sudoku::level1::box6.insert(std::make_pair('d', a));
-    sudoku::level1::box6.insert(std::make_pair('e', a));
-    sudoku::level1::box6.insert(std::make_pair('f', a));
-    sudoku::level1::box6.insert(std::make_pair('g', a));
-    sudoku::level1::box6.insert(std::make_pair('h', a));
-    sudoku::level1::box6.insert(std::make_pair('i', a));
-
-    sudoku::level1::box7.insert(std::make_pair('a', a));
-    sudoku::level1::box7.insert(std::make_pair('b', a));
-    sudoku::level1::box7.insert(std::make_pair('c', a));
-    sudoku::level1::box7.insert(std::make_pair('d', a));
-    sudoku::level1::box7.insert(std::make_pair('e', a));
-    sudoku::level1::box7.insert(std::make_pair('f', a));
-    sudoku::level1::box7.insert(std::make_pair('g', a));
-    sudoku::level1::box7.insert(std::make_pair('h', a));
-    sudoku::level1::box7.insert(std::make_pair('i', a));
-
-    sudoku::level1::box8.insert(std::make_pair('a', a));
-    sudoku::level1::box8.insert(std::make_pair('b', a));
-    sudoku::level1::box8.insert(std::make_pair('c', a));
-    sudoku::level1::box8.insert(std::make_pair('d', a));
-    sudoku::level1::box8.insert(std::make_pair('e', a));
-    sudoku::level1::box8.insert(std::make_pair('f', a));
-    sudoku::level1::box8.insert(std::make_pair('g', a));
-    sudoku::level1::box8.insert(std::make_pair('h', a));
-    sudoku::level1::box8.insert(std::make_pair('i', a));
-
-    sudoku::level1::box9.insert(std::make_pair('a', a));
-    sudoku::level1::box9.insert(std::make_pair('b', a));
-    sudoku::level1::box9.insert(std::make_pair('c', a));
-    sudoku::level1::box9.insert(std::make_pair('d', a));
-    sudoku::level1::box9.insert(std::make_pair('e', a));
-    sudoku::level1::box9.insert(std::make_pair('f', a));
-    sudoku::level1::box9.insert(std::make_pair('g', a));
-    sudoku::level1::box9.insert(std::make_pair('h', a));
-    sudoku::level1::box9.insert(std::make_pair('i', a));
+    for (char i = 'a'; i < 106; i++) {
+        sudoku::level1::box1.insert(std::make_pair(i, a));
+        sudoku::level1::box2.insert(std::make_pair(i, a));
+        sudoku::level1::box3.insert(std::make_pair(i, a));
+        sudoku::level1::box4.insert(std::make_pair(i, a));
+        sudoku::level1::box5.insert(std::make_pair(i, a));
+        sudoku::level1::box6.insert(std::make_pair(i, a));
+        sudoku::level1::box7.insert(std::make_pair(i, a));
+        sudoku::level1::box8.insert(std::make_pair(i, a));
+        sudoku::level1::box9.insert(std::make_pair(i, a));
+    }
 }
