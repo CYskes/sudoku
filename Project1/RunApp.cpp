@@ -73,7 +73,7 @@ int main(int argc, char* args[])
 
     SDL_WindowFlags window_flags = (SDL_WindowFlags)(SDL_WINDOW_OPENGL  | SDL_WINDOW_ALLOW_HIGHDPI);
     SDL_Window* window = SDL_CreateWindow("Sudoku Clone", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-        sudoku::windowHW, sudoku::windowHW,
+        sudoku::windowW, sudoku::windowH,
         window_flags);
     SDL_GLContext gl_context = SDL_GL_CreateContext(window);
 
@@ -93,11 +93,18 @@ int main(int argc, char* args[])
     ImGui_ImplSDL2_InitForOpenGL(window, gl_context);
     ImGui_ImplOpenGL3_Init(glsl_version);
 
+
     
     bool playSudoku = true;
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
-    sudoku::init();
+    sudoku::initLevel1();
+    sudoku::initLevel1AnswerKey();
     bool mainRun = true;
+    bool show_demo_window = false;
+
+    
+
+    
 
     while (mainRun) {
         SDL_Event event;
@@ -113,7 +120,10 @@ int main(int argc, char* args[])
         ImGui_ImplSDL2_NewFrame();
         ImGui::NewFrame();
 
-        
+        // 1. Show the big demo window (Most of the sample code is in ImGui::ShowDemoWindow()! You can browse its code to learn more about Dear ImGui!).
+        if (show_demo_window) {
+            ImGui::ShowDemoWindow(&show_demo_window);
+        }
 
         if (playSudoku) {
             sudoku::runSudoku(mainRun);

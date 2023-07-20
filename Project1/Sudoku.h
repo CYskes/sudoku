@@ -4,6 +4,10 @@
 
 namespace sudoku {
 	void runSudoku(bool mainRun);
+	void victoryWindow();
+	bool queryVictory();
+	void printEntries();
+	void clearMaps();
 
 	void squareOne(bool& x, std::map<char, std::string>*& submission, char& key);
 	void squareTwo(bool& x, std::map<char, std::string>*& submission, char& key);
@@ -15,15 +19,18 @@ namespace sudoku {
 	void squareEight(bool& x, std::map<char, std::string>*& submission, char& key);
 	void squareNine(bool& x, std::map<char, std::string>*& submission, char& key);
 
-	void init();
+	void saveGame();
+	void loadGame();
+	void entryPopup();
+	void initLevel1();
+	void initLevel1AnswerKey();
 
-
-	static float windowHW = 666;
-	static float buttonHW = windowHW / 10.5;
-	static ImVec2 squareSize(windowHW / 3, windowHW / 3);
-	static ImVec2 iconSize(squareSize.x / 3, squareSize.x / 3);
+	static float menuBarSize = 18;
+	static float windowH = 666 + menuBarSize;
+	static float windowW = 666;
+	static float buttonHW = windowW / 10.5;
+	static ImVec2 squareSize(windowW / 3, (windowH - menuBarSize) / 3);
 	static ImVec2 buttonSize(buttonHW, buttonHW);
-	//static std::map<char, std::string>& submission{level1::box2};
 	
 
 	namespace level1 {
@@ -37,7 +44,15 @@ namespace sudoku {
 		static std::map<char, std::string> box8;
 		static std::map<char, std::string> box9;
 
-		static std::map<char, std::string> answerKey;
+		static std::map<char, std::string> box1AnswerKey;
+		static std::map<char, std::string> box2AnswerKey;
+		static std::map<char, std::string> box3AnswerKey;
+		static std::map<char, std::string> box4AnswerKey;
+		static std::map<char, std::string> box5AnswerKey;
+		static std::map<char, std::string> box6AnswerKey;
+		static std::map<char, std::string> box7AnswerKey;
+		static std::map<char, std::string> box8AnswerKey;
+		static std::map<char, std::string> box9AnswerKey;
 	}
 }
 
