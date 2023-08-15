@@ -71,20 +71,20 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Dev\Libraries\SDL2-2.26.4\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Dev\Libraries\SDL2-2.26.4\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>T:\Dev\Libraries\SDL2-2.26.4\include;C:\Dev\Libraries\SDL2-2.26.4\include;$(IncludePath)</IncludePath>
+    <LibraryPath>T:\Dev\Libraries\SDL2-2.26.4\lib\x64;C:\Dev\Libraries\SDL2-2.26.4\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>C:\Dev\Libraries\SDL2-2.26.4\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Dev\Libraries\SDL2-2.26.4\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>T:\Dev\Libraries\SDL2-2.26.4\include;C:\Dev\Libraries\SDL2-2.26.4\include;$(IncludePath)</IncludePath>
+    <LibraryPath>T:\Dev\Libraries\SDL2-2.26.4\lib\x64;C:\Dev\Libraries\SDL2-2.26.4\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Dev\Libraries\SDL2-2.26.4\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Dev\Libraries\SDL2-2.26.4\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>T:\Dev\Libraries\SDL2-2.26.4\include;C:\Dev\Libraries\SDL2-2.26.4\include;$(IncludePath)</IncludePath>
+    <LibraryPath>T:\Dev\Libraries\SDL2-2.26.4\lib\x64;C:\Dev\Libraries\SDL2-2.26.4\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>C:\Dev\Libraries\SDL2-2.26.4\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Dev\Libraries\SDL2-2.26.4\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>T:\Dev\Libraries\SDL2-2.26.4\include;C:\Dev\Libraries\SDL2-2.26.4\include;$(IncludePath)</IncludePath>
+    <LibraryPath>T:\Dev\Libraries\SDL2-2.26.4\lib\x64;C:\Dev\Libraries\SDL2-2.26.4\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -158,8 +158,11 @@
     <ClCompile Include="imgui_impl_sdl2.cpp" />
     <ClCompile Include="imgui_tables.cpp" />
     <ClCompile Include="imgui_widgets.cpp" />
+    <ClCompile Include="level1.cpp" />
     <ClCompile Include="RunApp.cpp" />
     <ClCompile Include="Sudoku.cpp" />
+    <ClInclude Include="level1.h" />
+    <ClInclude Include="player.h" />
     <ClInclude Include="Sudoku.h" />
   </ItemGroup>
   <ItemGroup>
