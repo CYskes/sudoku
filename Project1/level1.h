@@ -3,38 +3,24 @@
 
 namespace level1 {
 
-	void initLevel();
+	void runLevel1(bool& x, std::string& key);
+	void initLevel1();
 	void initAnswerKey();
+	void clearMaps();
 	bool queryVictory();
+	static bool firstPass{ true };
 
-	void squareOne(bool& x, std::map<char, std::string>*& submission, char& key);
-	void squareTwo(bool& x, std::map<char, std::string>*& submission, char& key);
-	void squareThree(bool& x, std::map<char, std::string>*& submission, char& key);
-	void squareFour(bool& x, std::map<char, std::string>*& submission, char& key);
-	void squareFive(bool& x, std::map<char, std::string>*& submission, char& key);
-	void squareSix(bool& x, std::map<char, std::string>*& submission, char& key);
-	void squareSeven(bool& x, std::map<char, std::string>*& submission, char& key);
-	void squareEight(bool& x, std::map<char, std::string>*& submission, char& key);
-	void squareNine(bool& x, std::map<char, std::string>*& submission, char& key);
+	void squareOne(bool& x, std::string& key);
+	void squareTwo(bool& x, std::string& key);
+	void squareThree(bool& x, std::string& key);
+	void squareFour(bool& x, std::string& key);
+	void squareFive(bool& x, std::string& key);
+	void squareSix(bool& x, std::string& key);
+	void squareSeven(bool& x, std::string& key);
+	void squareEight(bool& x, std::string& key);
+	void squareNine(bool& x, std::string& key);
 
-	static std::map<char, std::string> box1;
-	static std::map<char, std::string> box2;
-	static std::map<char, std::string> box3;
-	static std::map<char, std::string> box4;
-	static std::map<char, std::string> box5;
-	static std::map<char, std::string> box6;
-	static std::map<char, std::string> box7;
-	static std::map<char, std::string> box8;
-	static std::map<char, std::string> box9;
-
-	static std::map<char, std::string> box1AnswerKey;
-	static std::map<char, std::string> box2AnswerKey;
-	static std::map<char, std::string> box3AnswerKey;
-	static std::map<char, std::string> box4AnswerKey;
-	static std::map<char, std::string> box5AnswerKey;
-	static std::map<char, std::string> box6AnswerKey;
-	static std::map<char, std::string> box7AnswerKey;
-	static std::map<char, std::string> box8AnswerKey;
-	static std::map<char, std::string> box9AnswerKey;
+	static std::map<std::string, std::string> initLevel; // poorly named, can't think of something better at this time
+	static std::map<std::string, std::string> AnswerKey;
 
 }

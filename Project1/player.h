@@ -6,5 +6,5 @@
 class player {
 public:
 	const char* name;
-	std::map <std::string, std::map<char, std::string>> savedGames;
+	std::map <std::string, std::map<std::string, std::string>> savedGames;
 };

@@ -22,11 +22,7 @@ To do:
 // Switching players would prompt it to feed run sudoku with a new set of data.  player class would contain a level save file,
 // raw level data could be pulled from the level.h file.
 
-bool submittingEntry{ false };
-bool victory{ false };
-char key{};
-auto* submission = &level1::box2;
-int currentLevel;
+ 
 
 
 void sudoku::runSudoku(bool mainRun)
@@ -42,7 +38,7 @@ void sudoku::runSudoku(bool mainRun)
             if (ImGui::MenuItem("Reset Game")) {
                 switch (currentLevel)
                 {
-                case 1: ::level1::initLevel(); break;
+                case 1: level1::initLevel1(); break;
                 case 2: break;
                     
                 }
@@ -52,15 +48,12 @@ void sudoku::runSudoku(bool mainRun)
     }
     ImGui::EndMainMenuBar();
     
-    squareOne(submittingEntry, submission, key);
-    squareTwo(submittingEntry, submission, key);
-    squareThree(submittingEntry,submission, key);
-    squareFour(submittingEntry, submission, key);
-    squareFive(submittingEntry, submission, key);
-    squareSix(submittingEntry, submission, key);
-    squareSeven(submittingEntry, submission, key);
-    squareEight(submittingEntry, submission, key);
-    squareNine(submittingEntry, submission, key);
+    switch (currentLevel)
+    {
+    case 1: level1::runLevel1(sudoku::submittingEntry, sudoku::key); break;
+    default:
+        break;
+    }
     
     if (victory)
         sudoku::victoryWindow();
@@ -86,125 +79,26 @@ void sudoku::victoryWindow(){
     }
 }
 
+bool sudoku::queryVictory() {
+    switch (sudoku::currentLevel)
+    {
+    case 1: return level1::queryVictory(); break;
+    
+    }
+}
+
 void sudoku::printEntries() {
-    for (auto const& [key, val] : sudoku::level1::box1) {
+    for (auto const& [key, val] : level1::initLevel) {
         std::cout << key << " : " << val << "\n";
     }
-    std::cout << std::endl;
-    for (auto const& [key, val] : sudoku::level1::box1AnswerKey) {
-        std::cout << key << " : " << val << "\n";
-    }
-    std::cout << std::endl;
-    for (auto const& [key, val] : sudoku::level1::box2) {
-        std::cout << key << " : " << val << "\n";
-    }
-    std::cout << std::endl;
-    for (auto const& [key, val] : sudoku::level1::box2AnswerKey) {
-        std::cout << key << " : " << val << "\n";
-    }
-    std::cout << std::endl;
-    for (auto const& [key, val] : sudoku::level1::box3) {
-        std::cout << key << " : " << val << "\n";
-    }
-    std::cout << std::endl;
-    for (auto const& [key, val] : sudoku::level1::box3AnswerKey) {
-        std::cout << key << " : " << val << "\n";
-    }
-    std::cout << std::endl;
-    for (auto const& [key, val] : sudoku::level1::box4) {
-        std::cout << key << " : " << val << "\n";
-    }
-    std::cout << std::endl;
-    for (auto const& [key, val] : sudoku::level1::box4AnswerKey) {
-        std::cout << key << " : " << val << "\n";
-    }
-    std::cout << std::endl;
-    for (auto const& [key, val] : sudoku::level1::box5) {
-        std::cout << key << " : " << val << "\n";
-    }
-    std::cout << std::endl;
-    for (auto const& [key, val] : sudoku::level1::box5AnswerKey) {
-        std::cout << key << " : " << val << "\n";
-    }
-    std::cout << std::endl;
-    for (auto const& [key, val] : sudoku::level1::box6) {
-        std::cout << key << " : " << val << "\n";
-    }
-    std::cout << std::endl;
-    for (auto const& [key, val] : sudoku::level1::box6AnswerKey) {
-        std::cout << key << " : " << val << "\n";
-    }
-    std::cout << std::endl;
-    for (auto const& [key, val] : sudoku::level1::box7) {
-        std::cout << key << " : " << val << "\n";
-    }
-    std::cout << std::endl;
-    for (auto const& [key, val] : sudoku::level1::box7AnswerKey) {
-        std::cout << key << " : " << val << "\n";
-    }
-    std::cout << std::endl;
-    for (auto const& [key, val] : sudoku::level1::box8) {
-        std::cout << key << " : " << val << "\n";
-    }
-    std::cout << std::endl;
-    for (auto const& [key, val] : sudoku::level1::box8AnswerKey) {
-        std::cout << key << " : " << val << "\n";
-    }
-    std::cout << std::endl;
-    for (auto const& [key, val] : sudoku::level1::box9) {
-        std::cout << key << " : " << val << "\n";
-    }
-    std::cout << std::endl;
-    for (auto const& [key, val] : sudoku::level1::box9AnswerKey) {
-        std::cout << key << " : " << val << "\n";
-    }
-    std::cout << "\n\nEnd of Entries" << std::endl;
 }
-
-void sudoku::clearMaps() {
-    sudoku::level1::box1.clear();
-    sudoku::level1::box2.clear();
-    sudoku::level1::box3.clear();
-    sudoku::level1::box4.clear();
-    sudoku::level1::box5.clear();
-    sudoku::level1::box6.clear();
-    sudoku::level1::box7.clear();
-    sudoku::level1::box8.clear();
-    sudoku::level1::box9.clear();
-}
-
-
 
 void sudoku::saveGame() {
     std::string saveName{ "savedGame" };
     saveName += currentLevel + ".txt";
     std::ofstream saveFile{ saveName, std::ios::trunc };
     if (saveFile) {
-        for (auto const& [key, val] : ::level1::box1) {
-            saveFile << (val + "\n");
-        }
-        for (auto const& [key, val] : ::level1::box2) {
-            saveFile << (val + "\n");
-        }
-        for (auto const& [key, val] : ::level1::box3) {
-            saveFile << (val + "\n");
-        }
-        for (auto const& [key, val] : ::level1::box4) {
-            saveFile << (val + "\n");
-        }
-        for (auto const& [key, val] : ::level1::box5) {
-            saveFile << (val + "\n");
-        }
-        for (auto const& [key, val] : ::level1::box6) {
-            saveFile << (val + "\n");
-        }
-        for (auto const& [key, val] : ::level1::box7) {
-            saveFile << (val + "\n");
-        }
-        for (auto const& [key, val] : ::level1::box8) {
-            saveFile << (val + "\n");
-        }
-        for (auto const& [key, val] : ::level1::box9) {
+        for (auto const& [key, val] : ::level1::initLevel) {
             saveFile << (val + "\n");
         }
     }
@@ -216,71 +110,7 @@ void sudoku::loadGame() {
     std::string value;
     if (saveFile)
     {
-        for (auto& [key, val] : sudoku::level1::box1) {
-            std::getline(saveFile, value);
-            if (value.empty())
-                val = " ";
-            else {
-                val = value;
-            }
-        }
-        for (auto& [key, val] : sudoku::level1::box2) {
-            std::getline(saveFile, value);
-            if (value.empty())
-                val = " ";
-            else {
-                val = value;
-            }
-        }
-        for (auto& [key, val] : sudoku::level1::box3) {
-            std::getline(saveFile, value);
-            if (value.empty())
-                val = " ";
-            else {
-                val = value;
-            }
-        }
-        for (auto& [key, val] : sudoku::level1::box4) {
-            std::getline(saveFile, value);
-            if (value.empty())
-                val = " ";
-            else {
-                val = value;
-            }
-        }
-        for (auto& [key, val] : sudoku::level1::box5) {
-            std::getline(saveFile, value);
-            if (value.empty())
-                val = " ";
-            else {
-                val = value;
-            }
-        }
-        for (auto& [key, val] : sudoku::level1::box6) {
-            std::getline(saveFile, value);
-            if (value.empty())
-                val = " ";
-            else {
-                val = value;
-            }
-        }
-        for (auto& [key, val] : sudoku::level1::box7) {
-            std::getline(saveFile, value);
-            if (value.empty())
-                val = " ";
-            else {
-                val = value;
-            }
-        }
-        for (auto& [key, val] : sudoku::level1::box8) {
-            std::getline(saveFile, value);
-            if (value.empty())
-                val = " ";
-            else {
-                val = value;
-            }
-        }
-        for (auto& [key, val] : sudoku::level1::box9) {
+        for (auto& [key, val] : ::level1::initLevel) {
             std::getline(saveFile, value);
             if (value.empty())
                 val = " ";
@@ -301,6 +131,7 @@ void sudoku::loadGame() {
 void sudoku::entryPopup() {
     if (ImGui::BeginPopup("entry"))
     {
+
         if (ImGui::Button("Clear", ImVec2(206, buttonHW))) {
             (*submission).at(key) = " ";
             ImGui::CloseCurrentPopup();
@@ -390,5 +221,5 @@ void sudoku::entryPopup() {
             sudoku::printEntries();
         }
         ImGui::EndPopup();
-    }
+    } 
 }
