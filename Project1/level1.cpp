@@ -3,13 +3,14 @@
 #include "Sudoku.h"
 
 // need to change the storage structure.  Moving from level1::box1 -> level1::initLevel(makepair("a1", " "));
+using namespace sudoku;
 
 void level1::initLevel1()
 {
     level1::clearMaps();
-    
-    sudoku::submission = &level1::initLevel;
 
+    sudoku::submission = &level1::initLevel;
+    
     level1::initLevel.insert(std::make_pair("a1", " "));
     level1::initLevel.insert(std::make_pair("b1", " "));
     level1::initLevel.insert(std::make_pair("c1", "4"));
@@ -99,6 +100,7 @@ void level1::initLevel1()
     level1::initLevel.insert(std::make_pair("g9", "1"));
     level1::initLevel.insert(std::make_pair("h9", " "));
     level1::initLevel.insert(std::make_pair("i9", " "));
+
 }
 
 void level1::initAnswerKey() {
@@ -207,6 +209,24 @@ void level1::clearMaps() {
     level1::initLevel.clear();
 }
 
+void level1::runLevel1(bool& entryBool, std::string& key) {
+    if (firstPass) {
+        initLevel1();
+        initAnswerKey();
+        firstPass = false;
+    }
+
+    level1::squareOne(entryBool, key);
+    level1::squareTwo(entryBool, key);
+    level1::squareThree(entryBool, key);
+    level1::squareFour(entryBool, key);
+    level1::squareFive(entryBool, key);
+    level1::squareSix(entryBool, key);
+    level1::squareSeven(entryBool, key);
+    level1::squareEight(entryBool, key);
+    level1::squareNine(entryBool, key);
+}
+
 void level1::squareOne(bool& entry, std::string& key)
 {
     ImGui::SetNextWindowSize(sudoku::squareSize);
@@ -216,7 +236,8 @@ void level1::squareOne(bool& entry, std::string& key)
     // Button 1-1
     if (ImGui::Button((level1::initLevel.at("a1")).c_str(), "a1", sudoku::buttonSize)) {
         key = "a1";
-        sudoku::submittingEntry = true;
+        sudoku::key = "a1";
+        entry = true;
     }
 
     // Button 1-2
@@ -779,20 +800,3 @@ void level1::squareNine(bool& entry, std::string& key) {
     ImGui::End();
 }
 
-void level1::runLevel1(bool& entryBool, std::string& key) {
-    if (firstPass) {
-        initLevel1();
-        initAnswerKey();
-        firstPass = false;
-    }
-    
-    level1::squareOne(entryBool, key);
-    level1::squareTwo(entryBool, key);
-    level1::squareThree(entryBool, key);
-    level1::squareFour(entryBool, key);
-    level1::squareFive(entryBool, key);
-    level1::squareSix(entryBool, key);
-    level1::squareSeven(entryBool, key);
-    level1::squareEight(entryBool, key);
-    level1::squareNine(entryBool, key);
-}

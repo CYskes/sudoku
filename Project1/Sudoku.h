@@ -5,8 +5,6 @@
 
 namespace sudoku {
 
-	
-
 	void runSudoku(bool mainRun);
 	void victoryWindow();
 	void printEntries();	
@@ -23,9 +21,8 @@ namespace sudoku {
 	static ImVec2 buttonSize(buttonHW, buttonHW);
 	static bool submittingEntry{ false };
 	static bool victory{ false };
-	static std::string key{};
+	static std::string key;
 	static std::map<std::string, std::string>* submission;
-	static int currentLevel{ 1 };
-	
+	static int currentLevel = 1 ;
 }
 

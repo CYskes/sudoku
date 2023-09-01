@@ -98,8 +98,8 @@ int main(int argc, char* args[])
     bool playSudoku = true;
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
     //sudoku::initLevel1();
-    level1::initLevel1();
-    level1::initAnswerKey();
+    sudoku::level1::initLevel1();
+    sudoku::level1::initAnswerKey();
     //sudoku::initLevel1AnswerKey();
     bool mainRun = true;
     bool show_demo_window = false;

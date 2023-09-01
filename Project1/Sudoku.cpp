@@ -48,12 +48,14 @@ void sudoku::runSudoku(bool mainRun)
     }
     ImGui::EndMainMenuBar();
     
-    switch (currentLevel)
+   /* switch (currentLevel)
     {
     case 1: level1::runLevel1(sudoku::submittingEntry, sudoku::key); break;
     default:
         break;
-    }
+    }*/
+
+    level1::runLevel1(sudoku::submittingEntry, sudoku::key);
     
     if (victory)
         sudoku::victoryWindow();
@@ -98,7 +100,7 @@ void sudoku::saveGame() {
     saveName += currentLevel + ".txt";
     std::ofstream saveFile{ saveName, std::ios::trunc };
     if (saveFile) {
-        for (auto const& [key, val] : ::level1::initLevel) {
+        for (auto const& [key, val] : sudoku::level1::initLevel) {
             saveFile << (val + "\n");
         }
     }
@@ -110,7 +112,7 @@ void sudoku::loadGame() {
     std::string value;
     if (saveFile)
     {
-        for (auto& [key, val] : ::level1::initLevel) {
+        for (auto& [key, val] : sudoku::level1::initLevel) {
             std::getline(saveFile, value);
             if (value.empty())
                 val = " ";
@@ -133,13 +135,13 @@ void sudoku::entryPopup() {
     {
 
         if (ImGui::Button("Clear", ImVec2(206, buttonHW))) {
-            (*submission).at(key) = " ";
+            level1::initLevel.at(key) = std::string(" ");
             ImGui::CloseCurrentPopup();
             submittingEntry = false;
             victory = sudoku::queryVictory();
         }
         if (ImGui::Button("1", buttonSize)) {
-            (*submission).at(key) = "1";
+            level1::initLevel.at(sudoku::key) = std::string("1");
             ImGui::CloseCurrentPopup();
             submittingEntry = false;
             if (sudoku::queryVictory()) {
@@ -148,7 +150,7 @@ void sudoku::entryPopup() {
         }
         ImGui::SameLine();
         if (ImGui::Button("2", buttonSize)) {
-            (*submission).at(key) = "2";
+            (*sudoku::submission).at(key) = std::string("2");
             ImGui::CloseCurrentPopup();
             submittingEntry = false;
             if (sudoku::queryVictory()) {
@@ -157,7 +159,7 @@ void sudoku::entryPopup() {
         }
         ImGui::SameLine();
         if (ImGui::Button("3", buttonSize)) {
-            (*submission).at(key) = "3";
+            (*sudoku::submission).at(key) = std::string("3");
             ImGui::CloseCurrentPopup();
             submittingEntry = false;
             if (sudoku::queryVictory()) {
@@ -165,7 +167,7 @@ void sudoku::entryPopup() {
             }
         }
         if (ImGui::Button("4", buttonSize)) {
-            (*submission).at(key) = "4";
+            (*sudoku::submission).at(key) = std::string("4");
             ImGui::CloseCurrentPopup();
             submittingEntry = false;
             if (sudoku::queryVictory()) {
@@ -174,7 +176,7 @@ void sudoku::entryPopup() {
         }
         ImGui::SameLine();
         if (ImGui::Button("5", buttonSize)) {
-            (*submission).at(key) = "5";
+            (*sudoku::submission).at(key) = std::string("5");
             ImGui::CloseCurrentPopup();
             submittingEntry = false;
             if (sudoku::queryVictory()) {
@@ -183,7 +185,7 @@ void sudoku::entryPopup() {
         }
         ImGui::SameLine();
         if (ImGui::Button("6", buttonSize)) {
-            (*submission).at(key) = "6";
+            (*sudoku::submission).at(key) = std::string("6");
             ImGui::CloseCurrentPopup();
             submittingEntry = false;
             if (sudoku::queryVictory()) {
@@ -191,7 +193,7 @@ void sudoku::entryPopup() {
             }
         }
         if (ImGui::Button("7", buttonSize)) {
-            (*submission).at(key) = "7";
+            (*sudoku::submission).at(key) = std::string("7");
             ImGui::CloseCurrentPopup();
             submittingEntry = false;
             if (sudoku::queryVictory()) {
@@ -200,7 +202,7 @@ void sudoku::entryPopup() {
         }
         ImGui::SameLine();
         if (ImGui::Button("8", buttonSize)) {
-            (*submission).at(key) = "8";
+            (*sudoku::submission).at(key) = std::string("8");
             ImGui::CloseCurrentPopup();
             submittingEntry = false;
             if (sudoku::queryVictory()) {
@@ -209,7 +211,7 @@ void sudoku::entryPopup() {
         }
         ImGui::SameLine();
         if (ImGui::Button("9", buttonSize)) {
-            (*submission).at(key) = "9";
+            (*sudoku::submission).at(key) = std::string("9");
             ImGui::CloseCurrentPopup();
             submittingEntry = false;
             if (sudoku::queryVictory()) {
