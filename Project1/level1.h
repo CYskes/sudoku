@@ -22,8 +22,8 @@ namespace sudoku {
 		void squareEight(bool& x, std::string& key);
 		void squareNine(bool& x, std::string& key);
 
-		static std::map<std::string, std::string> initLevel; // poorly named, can't think of something better at this time
-		static std::map<std::string, std::string> AnswerKey;
+		inline std::map<std::string, std::string>* initLevel = new std::map<std::string, std::string>; // poorly named, can't think of something better at this time
+		inline std::map<std::string, std::string> AnswerKey;
 
 	}
 

@@ -156,6 +156,8 @@ int main(int argc, char* args[])
     }
 
     // Cleanup
+    delete sudoku::level1::initLevel;
+
     ImGui_ImplOpenGL3_Shutdown();
     ImGui_ImplSDL2_Shutdown();
     ImGui::DestroyContext();

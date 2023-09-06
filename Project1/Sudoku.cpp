@@ -90,7 +90,9 @@ bool sudoku::queryVictory() {
 }
 
 void sudoku::printEntries() {
-    for (auto const& [key, val] : level1::initLevel) {
+    if (sudoku::level1::initLevel->empty())
+        std::cout << "Container is empty" << std::endl;
+    for (auto const& [key, val] : *sudoku::level1::initLevel) {
         std::cout << key << " : " << val << "\n";
     }
 }
@@ -100,7 +102,7 @@ void sudoku::saveGame() {
     saveName += currentLevel + ".txt";
     std::ofstream saveFile{ saveName, std::ios::trunc };
     if (saveFile) {
-        for (auto const& [key, val] : sudoku::level1::initLevel) {
+        for (auto const& [key, val] : *sudoku::level1::initLevel) {
             saveFile << (val + "\n");
         }
     }
@@ -112,7 +114,7 @@ void sudoku::loadGame() {
     std::string value;
     if (saveFile)
     {
-        for (auto& [key, val] : sudoku::level1::initLevel) {
+        for (auto& [key, val] : *sudoku::level1::initLevel) {
             std::getline(saveFile, value);
             if (value.empty())
                 val = " ";
@@ -135,13 +137,13 @@ void sudoku::entryPopup() {
     {
 
         if (ImGui::Button("Clear", ImVec2(206, buttonHW))) {
-            level1::initLevel.at(key) = std::string(" ");
+            level1::initLevel->at(key) = std::string(" ");
             ImGui::CloseCurrentPopup();
             submittingEntry = false;
             victory = sudoku::queryVictory();
         }
         if (ImGui::Button("1", buttonSize)) {
-            level1::initLevel.at(sudoku::key) = std::string("1");
+            level1::initLevel->at(sudoku::key) = std::string("1");
             ImGui::CloseCurrentPopup();
             submittingEntry = false;
             if (sudoku::queryVictory()) {

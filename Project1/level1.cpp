@@ -3,103 +3,104 @@
 #include "Sudoku.h"
 
 // need to change the storage structure.  Moving from level1::box1 -> level1::initLevel(makepair("a1", " "));
+
 using namespace sudoku;
 
-void level1::initLevel1()
+void sudoku::level1::initLevel1()
 {
     level1::clearMaps();
 
-    sudoku::submission = &level1::initLevel;
-    
-    level1::initLevel.insert(std::make_pair("a1", " "));
-    level1::initLevel.insert(std::make_pair("b1", " "));
-    level1::initLevel.insert(std::make_pair("c1", "4"));
-    level1::initLevel.insert(std::make_pair("d1", "9"));
-    level1::initLevel.insert(std::make_pair("e1", " "));
-    level1::initLevel.insert(std::make_pair("f1", " "));
-    level1::initLevel.insert(std::make_pair("g1", " "));
-    level1::initLevel.insert(std::make_pair("h1", " "));
-    level1::initLevel.insert(std::make_pair("i1", "3"));
-                                    
-    level1::initLevel.insert(std::make_pair("a2", " "));
-    level1::initLevel.insert(std::make_pair("b2", "5"));
-    level1::initLevel.insert(std::make_pair("c2", " "));
-    level1::initLevel.insert(std::make_pair("d2", "7"));
-    level1::initLevel.insert(std::make_pair("e2", "3"));
-    level1::initLevel.insert(std::make_pair("f2", "4"));
-    level1::initLevel.insert(std::make_pair("g2", " "));
-    level1::initLevel.insert(std::make_pair("h2", "2"));
-    level1::initLevel.insert(std::make_pair("i2", "1"));
-                                          
-    level1::initLevel.insert(std::make_pair("a3", " "));
-    level1::initLevel.insert(std::make_pair("b3", " "));
-    level1::initLevel.insert(std::make_pair("c3", " "));
-    level1::initLevel.insert(std::make_pair("d3", "6"));
-    level1::initLevel.insert(std::make_pair("e3", " "));
-    level1::initLevel.insert(std::make_pair("f3", " "));
-    level1::initLevel.insert(std::make_pair("g3", " "));
-    level1::initLevel.insert(std::make_pair("h3", "4"));
-    level1::initLevel.insert(std::make_pair("i3", "9"));
-                                          
-    level1::initLevel.insert(std::make_pair("a4", " "));
-    level1::initLevel.insert(std::make_pair("b4", "3"));
-    level1::initLevel.insert(std::make_pair("c4", "5"));
-    level1::initLevel.insert(std::make_pair("d4", " "));
-    level1::initLevel.insert(std::make_pair("e4", "9"));
-    level1::initLevel.insert(std::make_pair("f4", " "));
-    level1::initLevel.insert(std::make_pair("g4", " "));
-    level1::initLevel.insert(std::make_pair("h4", "7"));
-    level1::initLevel.insert(std::make_pair("i4", "6"));
-                                          
-    level1::initLevel.insert(std::make_pair("a5", " "));
-    level1::initLevel.insert(std::make_pair("b5", "9"));
-    level1::initLevel.insert(std::make_pair("c5", " "));
-    level1::initLevel.insert(std::make_pair("d5", " "));
-    level1::initLevel.insert(std::make_pair("e5", " "));
-    level1::initLevel.insert(std::make_pair("f5", " "));
-    level1::initLevel.insert(std::make_pair("g5", " "));
-    level1::initLevel.insert(std::make_pair("h5", "1"));
-    level1::initLevel.insert(std::make_pair("i5", " "));
-                                             
-    level1::initLevel.insert(std::make_pair("a6", "4"));
-    level1::initLevel.insert(std::make_pair("b6", "8"));
-    level1::initLevel.insert(std::make_pair("c6", " "));
-    level1::initLevel.insert(std::make_pair("d6", " "));
-    level1::initLevel.insert(std::make_pair("e6", "3"));
-    level1::initLevel.insert(std::make_pair("f6", " "));
-    level1::initLevel.insert(std::make_pair("g6", "9"));
-    level1::initLevel.insert(std::make_pair("h6", "2"));
-    level1::initLevel.insert(std::make_pair("i6", " "));
-                                              
-    level1::initLevel.insert(std::make_pair("a7", "3"));
-    level1::initLevel.insert(std::make_pair("b7", "1"));
-    level1::initLevel.insert(std::make_pair("c7", " "));
-    level1::initLevel.insert(std::make_pair("d7", " "));
-    level1::initLevel.insert(std::make_pair("e7", " "));
-    level1::initLevel.insert(std::make_pair("f7", "9"));
-    level1::initLevel.insert(std::make_pair("g7", " "));
-    level1::initLevel.insert(std::make_pair("h7", " "));
-    level1::initLevel.insert(std::make_pair("i7", " "));
-                                              
-    level1::initLevel.insert(std::make_pair("a8", "9"));
-    level1::initLevel.insert(std::make_pair("b8", "7"));
-    level1::initLevel.insert(std::make_pair("c8", " "));
-    level1::initLevel.insert(std::make_pair("d8", "1"));
-    level1::initLevel.insert(std::make_pair("e8", "8"));
-    level1::initLevel.insert(std::make_pair("f8", "2"));
-    level1::initLevel.insert(std::make_pair("g8", " "));
-    level1::initLevel.insert(std::make_pair("h8", "6"));
-    level1::initLevel.insert(std::make_pair("i8", " "));
-                                             
-    level1::initLevel.insert(std::make_pair("a9", "2"));
-    level1::initLevel.insert(std::make_pair("b9", " "));
-    level1::initLevel.insert(std::make_pair("c9", " "));
-    level1::initLevel.insert(std::make_pair("d9", " "));
-    level1::initLevel.insert(std::make_pair("e9", " "));
-    level1::initLevel.insert(std::make_pair("f9", "3"));
-    level1::initLevel.insert(std::make_pair("g9", "1"));
-    level1::initLevel.insert(std::make_pair("h9", " "));
-    level1::initLevel.insert(std::make_pair("i9", " "));
+    sudoku::submission = level1::initLevel;
+
+    level1::initLevel->insert(std::make_pair("a1", " "));
+    level1::initLevel->insert(std::make_pair("b1", " "));
+    level1::initLevel->insert(std::make_pair("c1", "4"));
+    level1::initLevel->insert(std::make_pair("d1", "9"));
+    level1::initLevel->insert(std::make_pair("e1", " "));
+    level1::initLevel->insert(std::make_pair("f1", " "));
+    level1::initLevel->insert(std::make_pair("g1", " "));
+    level1::initLevel->insert(std::make_pair("h1", " "));
+    level1::initLevel->insert(std::make_pair("i1", "3"));
+                                 
+    level1::initLevel->insert(std::make_pair("a2", " "));
+    level1::initLevel->insert(std::make_pair("b2", "5"));
+    level1::initLevel->insert(std::make_pair("c2", " "));
+    level1::initLevel->insert(std::make_pair("d2", "7"));
+    level1::initLevel->insert(std::make_pair("e2", "3"));
+    level1::initLevel->insert(std::make_pair("f2", "4"));
+    level1::initLevel->insert(std::make_pair("g2", " "));
+    level1::initLevel->insert(std::make_pair("h2", "2"));
+    level1::initLevel->insert(std::make_pair("i2", "1"));
+                                      
+    level1::initLevel->insert(std::make_pair("a3", " "));
+    level1::initLevel->insert(std::make_pair("b3", " "));
+    level1::initLevel->insert(std::make_pair("c3", " "));
+    level1::initLevel->insert(std::make_pair("d3", "6"));
+    level1::initLevel->insert(std::make_pair("e3", " "));
+    level1::initLevel->insert(std::make_pair("f3", " "));
+    level1::initLevel->insert(std::make_pair("g3", " "));
+    level1::initLevel->insert(std::make_pair("h3", "4"));
+    level1::initLevel->insert(std::make_pair("i3", "9"));
+                                     
+    level1::initLevel->insert(std::make_pair("a4", " "));
+    level1::initLevel->insert(std::make_pair("b4", "3"));
+    level1::initLevel->insert(std::make_pair("c4", "5"));
+    level1::initLevel->insert(std::make_pair("d4", " "));
+    level1::initLevel->insert(std::make_pair("e4", "9"));
+    level1::initLevel->insert(std::make_pair("f4", " "));
+    level1::initLevel->insert(std::make_pair("g4", " "));
+    level1::initLevel->insert(std::make_pair("h4", "7"));
+    level1::initLevel->insert(std::make_pair("i4", "6"));
+                               
+    level1::initLevel->insert(std::make_pair("a5", " "));
+    level1::initLevel->insert(std::make_pair("b5", "9"));
+    level1::initLevel->insert(std::make_pair("c5", " "));
+    level1::initLevel->insert(std::make_pair("d5", " "));
+    level1::initLevel->insert(std::make_pair("e5", " "));
+    level1::initLevel->insert(std::make_pair("f5", " "));
+    level1::initLevel->insert(std::make_pair("g5", " "));
+    level1::initLevel->insert(std::make_pair("h5", "1"));
+    level1::initLevel->insert(std::make_pair("i5", " "));
+                                  
+    level1::initLevel->insert(std::make_pair("a6", "4"));
+    level1::initLevel->insert(std::make_pair("b6", "8"));
+    level1::initLevel->insert(std::make_pair("c6", " "));
+    level1::initLevel->insert(std::make_pair("d6", " "));
+    level1::initLevel->insert(std::make_pair("e6", "3"));
+    level1::initLevel->insert(std::make_pair("f6", " "));
+    level1::initLevel->insert(std::make_pair("g6", "9"));
+    level1::initLevel->insert(std::make_pair("h6", "2"));
+    level1::initLevel->insert(std::make_pair("i6", " "));
+                                        
+    level1::initLevel->insert(std::make_pair("a7", "3"));
+    level1::initLevel->insert(std::make_pair("b7", "1"));
+    level1::initLevel->insert(std::make_pair("c7", " "));
+    level1::initLevel->insert(std::make_pair("d7", " "));
+    level1::initLevel->insert(std::make_pair("e7", " "));
+    level1::initLevel->insert(std::make_pair("f7", "9"));
+    level1::initLevel->insert(std::make_pair("g7", " "));
+    level1::initLevel->insert(std::make_pair("h7", " "));
+    level1::initLevel->insert(std::make_pair("i7", " "));
+                                        
+    level1::initLevel->insert(std::make_pair("a8", "9"));
+    level1::initLevel->insert(std::make_pair("b8", "7"));
+    level1::initLevel->insert(std::make_pair("c8", " "));
+    level1::initLevel->insert(std::make_pair("d8", "1"));
+    level1::initLevel->insert(std::make_pair("e8", "8"));
+    level1::initLevel->insert(std::make_pair("f8", "2"));
+    level1::initLevel->insert(std::make_pair("g8", " "));
+    level1::initLevel->insert(std::make_pair("h8", "6"));
+    level1::initLevel->insert(std::make_pair("i8", " "));
+                                           
+    level1::initLevel->insert(std::make_pair("a9", "2"));
+    level1::initLevel->insert(std::make_pair("b9", " "));
+    level1::initLevel->insert(std::make_pair("c9", " "));
+    level1::initLevel->insert(std::make_pair("d9", " "));
+    level1::initLevel->insert(std::make_pair("e9", " "));
+    level1::initLevel->insert(std::make_pair("f9", "3"));
+    level1::initLevel->insert(std::make_pair("g9", "1"));
+    level1::initLevel->insert(std::make_pair("h9", " "));
+    level1::initLevel->insert(std::make_pair("i9", " "));
 
 }
 
@@ -198,7 +199,7 @@ void level1::initAnswerKey() {
 
 bool level1::queryVictory() {
     if (
-        level1::initLevel == level1::AnswerKey
+        *level1::initLevel == level1::AnswerKey
         )
         return true;
     else
@@ -206,7 +207,7 @@ bool level1::queryVictory() {
 }
 
 void level1::clearMaps() {
-    level1::initLevel.clear();
+    level1::initLevel->clear();
 }
 
 void level1::runLevel1(bool& entryBool, std::string& key) {
@@ -234,7 +235,7 @@ void level1::squareOne(bool& entry, std::string& key)
     ImGui::Begin("1", (bool*)nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize);
 
     // Button 1-1
-    if (ImGui::Button((level1::initLevel.at("a1")).c_str(), "a1", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("a1")).c_str(), "a1", sudoku::buttonSize)) {
         key = "a1";
         sudoku::key = "a1";
         entry = true;
@@ -242,7 +243,7 @@ void level1::squareOne(bool& entry, std::string& key)
 
     // Button 1-2
     ImGui::SameLine();
-    if (ImGui::Button((level1::initLevel.at("b1")).c_str(), "b1", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("b1")).c_str(), "b1", sudoku::buttonSize)) {
         key = "b1";
         entry = true;
     }
@@ -260,27 +261,27 @@ void level1::squareOne(bool& entry, std::string& key)
 
     // Button 1-5
     ImGui::SameLine();
-    if (ImGui::Button((level1::initLevel.at("e1")).c_str(), "e1", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("e1")).c_str(), "e1", sudoku::buttonSize)) {
         key = "e1";
         entry = true;
     }
 
     // Button 1-6
     ImGui::SameLine();
-    if (ImGui::Button((level1::initLevel.at("f1")).c_str(), "f1", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("f1")).c_str(), "f1", sudoku::buttonSize)) {
         key = "f1";
         entry = true;
     }
 
     // Button 1-7
-    if (ImGui::Button((level1::initLevel.at("g1")).c_str(), "g1", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("g1")).c_str(), "g1", sudoku::buttonSize)) {
         key = "g1";
         entry = true;
     }
 
     // Button 1-8
     ImGui::SameLine();
-    if (ImGui::Button((level1::initLevel.at("h1")).c_str(), "h1", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("h1")).c_str(), "h1", sudoku::buttonSize)) {
         key = "h1";
         entry = true;
     }
@@ -300,7 +301,7 @@ void level1::squareTwo(bool& entry, std::string& key)
     ImGui::Begin("2", (bool*)nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize);
 
     // Button 2-1
-    if (ImGui::Button((level1::initLevel.at("a2")).c_str(), "a2", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("a2")).c_str(), "a2", sudoku::buttonSize)) {
         key = "a2";
         entry = true;
     }
@@ -313,7 +314,7 @@ void level1::squareTwo(bool& entry, std::string& key)
 
     // Button 2-3
     ImGui::SameLine();
-    if (ImGui::Button((level1::initLevel.at("c2")).c_str(), "c2", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("c2")).c_str(), "c2", sudoku::buttonSize)) {
         key = "c2";
         entry = true;
     }
@@ -334,7 +335,7 @@ void level1::squareTwo(bool& entry, std::string& key)
     ImGui::PopStyleColor(1);
 
     // Button 2-7
-    if (ImGui::Button((level1::initLevel.at("g2")).c_str(), "g2", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("g2")).c_str(), "g2", sudoku::buttonSize)) {
         key = "g2";
         entry = true;
     }
@@ -357,21 +358,21 @@ void level1::squareThree(bool& entry, std::string& key) {
     ImGui::Begin("3", (bool*)nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize);
 
     // Button 3-1
-    if (ImGui::Button((level1::initLevel.at("a3")).c_str(), "a3", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("a3")).c_str(), "a3", sudoku::buttonSize)) {
         key = "a3";
         entry = true;
     }
 
     // Button 3-2
     ImGui::SameLine();
-    if (ImGui::Button((level1::initLevel.at("b3")).c_str(), "b3", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("b3")).c_str(), "b3", sudoku::buttonSize)) {
         key = "b3";
         entry = true;
     }
 
     // Button 3-3
     ImGui::SameLine();
-    if (ImGui::Button((level1::initLevel.at("c3")).c_str(), "c3", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("c3")).c_str(), "c3", sudoku::buttonSize)) {
         key = "c3";
         entry = true;
     }
@@ -383,20 +384,20 @@ void level1::squareThree(bool& entry, std::string& key) {
 
     // Button 3-5
     ImGui::SameLine();
-    if (ImGui::Button((level1::initLevel.at("e3")).c_str(), "e3", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("e3")).c_str(), "e3", sudoku::buttonSize)) {
         key = "e3";
         entry = true;
     }
 
     // Button 3-6
     ImGui::SameLine();
-    if (ImGui::Button((level1::initLevel.at("f3")).c_str(), "f3", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("f3")).c_str(), "f3", sudoku::buttonSize)) {
         key = "f3";
         entry = true;
     }
 
     // Button 3-7
-    if (ImGui::Button((level1::initLevel.at("g3")).c_str(), "g3", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("g3")).c_str(), "g3", sudoku::buttonSize)) {
         key = "g3";
         entry = true;
     }
@@ -422,7 +423,7 @@ void level1::squareFour(bool& entry, std::string& key) {
     ImGui::Begin("4", (bool*)nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize);
 
     // Button 4-1
-    if (ImGui::Button((level1::initLevel.at("a4")).c_str(), "a4", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("a4")).c_str(), "a4", sudoku::buttonSize)) {
         key = "a4";
         entry = true;
     }
@@ -440,7 +441,7 @@ void level1::squareFour(bool& entry, std::string& key) {
     ImGui::PopStyleColor(1);
 
     // Button 4-4
-    if (ImGui::Button((level1::initLevel.at("d4")).c_str(), "d4", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("d4")).c_str(), "d4", sudoku::buttonSize)) {
         key = "d4";
         entry = true;
     }
@@ -453,13 +454,13 @@ void level1::squareFour(bool& entry, std::string& key) {
 
     // Button 4-6
     ImGui::SameLine();
-    if (ImGui::Button((level1::initLevel.at("f4")).c_str(), "f4", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("f4")).c_str(), "f4", sudoku::buttonSize)) {
         key = "f4";
         entry = true;
     }
 
     // Button 4-7
-    if (ImGui::Button((level1::initLevel.at("g4")).c_str(), "g4", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("g4")).c_str(), "g4", sudoku::buttonSize)) {
         key = "g4";
         entry = true;
     }
@@ -485,7 +486,7 @@ void level1::squareFive(bool& entry, std::string& key) {
     ImGui::Begin("5", (bool*)nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize);
 
     // Button 5-1
-    if (ImGui::Button((level1::initLevel.at("a5")).c_str(), "a5", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("a5")).c_str(), "a5", sudoku::buttonSize)) {
         key = "a5";
         entry = true;
     }
@@ -498,33 +499,33 @@ void level1::squareFive(bool& entry, std::string& key) {
 
     // Button 5-3
     ImGui::SameLine();
-    if (ImGui::Button((level1::initLevel.at("c5")).c_str(), "c5", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("c5")).c_str(), "c5", sudoku::buttonSize)) {
         key = "c5";
         entry = true;
     }
 
     // Button 5-4
-    if (ImGui::Button((level1::initLevel.at("d5")).c_str(), "d5", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("d5")).c_str(), "d5", sudoku::buttonSize)) {
         key = "d5";
         entry = true;
     }
 
     // Button 5-5
     ImGui::SameLine();
-    if (ImGui::Button((level1::initLevel.at("e5")).c_str(), "e5", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("e5")).c_str(), "e5", sudoku::buttonSize)) {
         key = "e5";
         entry = true;
     }
 
     // Button 5-6
     ImGui::SameLine();
-    if (ImGui::Button((level1::initLevel.at("f5")).c_str(), "f5", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("f5")).c_str(), "f5", sudoku::buttonSize)) {
         key = "f5";
         entry = true;
     }
 
     // Button 5-7
-    if (ImGui::Button((level1::initLevel.at("g5")).c_str(), "g5", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("g5")).c_str(), "g5", sudoku::buttonSize)) {
         key = "g5";
         entry = true;
     }
@@ -537,7 +538,7 @@ void level1::squareFive(bool& entry, std::string& key) {
 
     // Button 5-9
     ImGui::SameLine();
-    if (ImGui::Button((level1::initLevel.at("i5")).c_str(), "i5", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("i5")).c_str(), "i5", sudoku::buttonSize)) {
         key = "i5";
         entry = true;
     }
@@ -563,13 +564,13 @@ void level1::squareSix(bool& entry, std::string& key) {
 
     // Button 6-3
     ImGui::SameLine();
-    if (ImGui::Button((level1::initLevel.at("c6")).c_str(), "c6", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("c6")).c_str(), "c6", sudoku::buttonSize)) {
         key = "c6";
         entry = true;
     }
 
     // Button 6-4
-    if (ImGui::Button((level1::initLevel.at("d6")).c_str(), "d6", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("d6")).c_str(), "d6", sudoku::buttonSize)) {
         key = "d6";
         entry = true;
     }
@@ -582,7 +583,7 @@ void level1::squareSix(bool& entry, std::string& key) {
 
     // Button 6-6
     ImGui::SameLine();
-    if (ImGui::Button((level1::initLevel.at("f6")).c_str(), "f6", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("f6")).c_str(), "f6", sudoku::buttonSize)) {
         key = "f6";
         entry = true;
     }
@@ -600,7 +601,7 @@ void level1::squareSix(bool& entry, std::string& key) {
 
     // Button 6-9
     ImGui::SameLine();
-    if (ImGui::Button((level1::initLevel.at("i6")).c_str(), "i6", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("i6")).c_str(), "i6", sudoku::buttonSize)) {
         key = "i6";
         entry = true;
     }
@@ -626,20 +627,20 @@ void level1::squareSeven(bool& entry, std::string& key) {
 
     // Button 7-3
     ImGui::SameLine();
-    if (ImGui::Button((level1::initLevel.at("c7")).c_str(), "c7", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("c7")).c_str(), "c7", sudoku::buttonSize)) {
         key = "c7";
         entry = true;
     }
 
     // Button 7-4
-    if (ImGui::Button((level1::initLevel.at("d7")).c_str(), "d7", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("d7")).c_str(), "d7", sudoku::buttonSize)) {
         key = "d7";
         entry = true;
     }
 
     // Button 7-5
     ImGui::SameLine();
-    if (ImGui::Button((level1::initLevel.at("e7")).c_str(), "e7", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("e7")).c_str(), "e7", sudoku::buttonSize)) {
         key = "e7";
         entry = true;
     }
@@ -651,21 +652,21 @@ void level1::squareSeven(bool& entry, std::string& key) {
     ImGui::PopStyleColor(1);
 
     // Button 7-7
-    if (ImGui::Button((level1::initLevel.at("g7")).c_str(), "g7", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("g7")).c_str(), "g7", sudoku::buttonSize)) {
         key = "g7";
         entry = true;
     }
 
     // Button 7-8
     ImGui::SameLine();
-    if (ImGui::Button((level1::initLevel.at("h7")).c_str(), "h7", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("h7")).c_str(), "h7", sudoku::buttonSize)) {
         key = "h7";
         entry = true;
     }
 
     // Button 7-9
     ImGui::SameLine();
-    if (ImGui::Button((level1::initLevel.at("i7")).c_str(), "i7", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("i7")).c_str(), "i7", sudoku::buttonSize)) {
         key = "i7";
         entry = true;
     }
@@ -691,7 +692,7 @@ void level1::squareEight(bool& entry, std::string& key) {
 
     // Button 8-3
     ImGui::SameLine();
-    if (ImGui::Button((level1::initLevel.at("c8")).c_str(), "c8", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("c8")).c_str(), "c8", sudoku::buttonSize)) {
         key = "c8";
         entry = true;
     }
@@ -714,7 +715,7 @@ void level1::squareEight(bool& entry, std::string& key) {
     ImGui::PopStyleColor(1);
 
     // Button 8-7
-    if (ImGui::Button((level1::initLevel.at("g8")).c_str(), "g8", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("g8")).c_str(), "g8", sudoku::buttonSize)) {
         key = "g8";
         entry = true;
     }
@@ -727,7 +728,7 @@ void level1::squareEight(bool& entry, std::string& key) {
 
     // Button 8-9
     ImGui::SameLine();
-    if (ImGui::Button((level1::initLevel.at("i8")).c_str(), "i8", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("i8")).c_str(), "i8", sudoku::buttonSize)) {
         key = "i8";
         entry = true;
     }
@@ -747,27 +748,27 @@ void level1::squareNine(bool& entry, std::string& key) {
 
     // Button 9-2
     ImGui::SameLine();
-    if (ImGui::Button((level1::initLevel.at("b9")).c_str(), "b9", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("b9")).c_str(), "b9", sudoku::buttonSize)) {
         key = "b9";
         entry = true;
     }
 
     // Button 9-3
     ImGui::SameLine();
-    if (ImGui::Button((level1::initLevel.at("c9")).c_str(), "c9", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("c9")).c_str(), "c9", sudoku::buttonSize)) {
         key = "c9";
         entry = true;
     }
 
     // Button 9-4
-    if (ImGui::Button((level1::initLevel.at("d9")).c_str(), "d9", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("d9")).c_str(), "d9", sudoku::buttonSize)) {
         key = "d9";
         entry = true;
     }
 
     // Button 9-5
     ImGui::SameLine();
-    if (ImGui::Button((level1::initLevel.at("e9")).c_str(), "e9", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("e9")).c_str(), "e9", sudoku::buttonSize)) {
         key = "e9";
         entry = true;
     }
@@ -785,14 +786,14 @@ void level1::squareNine(bool& entry, std::string& key) {
 
     // Button 9-8
     ImGui::SameLine();
-    if (ImGui::Button((level1::initLevel.at("h9")).c_str(), "h9", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("h9")).c_str(), "h9", sudoku::buttonSize)) {
         key = "h9";
         entry = true;
     }
 
     // Button 9-9
     ImGui::SameLine();
-    if (ImGui::Button((level1::initLevel.at("i9")).c_str(), "i9", sudoku::buttonSize)) {
+    if (ImGui::Button((level1::initLevel->at("i9")).c_str(), "i9", sudoku::buttonSize)) {
         key = "i9";
         entry = true;
     }

@@ -13,16 +13,16 @@ namespace sudoku {
 	void loadGame();
 	void entryPopup();
 
-	static float menuBarSize = 18;
-	static float windowH = 666 + menuBarSize;
-	static float windowW = 666;
-	static float buttonHW = windowW / 10.5;
-	static ImVec2 squareSize(windowW / 3, (windowH - menuBarSize) / 3);
-	static ImVec2 buttonSize(buttonHW, buttonHW);
-	static bool submittingEntry{ false };
-	static bool victory{ false };
-	static std::string key;
-	static std::map<std::string, std::string>* submission;
-	static int currentLevel = 1 ;
+	inline float menuBarSize = 18;
+	inline float windowH = 666 + menuBarSize;
+	inline float windowW = 666;
+	inline float buttonHW = windowW / 10.5;
+	inline ImVec2 squareSize(windowW / 3, (windowH - menuBarSize) / 3);
+	inline ImVec2 buttonSize(buttonHW, buttonHW);
+	inline bool submittingEntry{ false };
+	inline bool victory{ false };
+	inline std::string key;
+	inline std::map<std::string, std::string>* submission;
+	inline int currentLevel = 1 ;
 }
 
