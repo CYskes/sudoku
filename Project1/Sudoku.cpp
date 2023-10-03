@@ -15,56 +15,56 @@ To do:
 - players
 */
 
-
 // I will likely need to break into classes so that each player is it's one rendition of the game/level
 
 // Player could be a class passed into runSudoku which would be able to pull all memory data from that.
-// Switching players would prompt it to feed run sudoku with a new set of data.  player class would contain a level save file,
+// Switching players would prompt it to feed runSudoku with a new set of data.  player class would contain a level save file,
 // raw level data could be pulled from the level.h file.
-
- 
-
 
 void sudoku::runSudoku(bool mainRun)
 {
+    if (sudoku::playerList.empty()) {
+        currentPlayer = createPlayer();
+    }
+    else {
+        currentPlayer = &(playerList.front());
+    }
+
+    // will be moved to it's own function at a later date
     if (ImGui::BeginMainMenuBar()) {
         if (ImGui::BeginMenu("File")) {
             if (ImGui::MenuItem("Save")) {
-                sudoku::saveGame();
+                sudoku::currentPlayer->saveGame();
             }
-            if(ImGui::MenuItem("Load")){
-                sudoku::loadGame();
+            if (ImGui::MenuItem("Load")) {
+                sudoku::currentPlayer->loadGame();
             }
             if (ImGui::MenuItem("Reset Game")) {
                 switch (currentLevel)
                 {
                 case 1: level1::initLevel1(); break;
                 case 2: break;
-                    
                 }
+            }
+            if (ImGui::MenuItem("Current player")) {
+                std::cout << currentPlayer->name << std::endl;
             }
             ImGui::EndMenu();
         }
-    }
-    ImGui::EndMainMenuBar();
-    
-   /* switch (currentLevel)
-    {
-    case 1: level1::runLevel1(sudoku::submittingEntry, sudoku::key); break;
-    default:
-        break;
-    }*/
 
-    level1::runLevel1(sudoku::submittingEntry, sudoku::key);
-    
-    if (victory)
-        sudoku::victoryWindow();
+        ImGui::EndMainMenuBar();
 
-    if (submittingEntry) {
-        ImGui::OpenPopup("entry");
-        sudoku::entryPopup();
+        level1::runLevel1(sudoku::submittingEntry, sudoku::key);
+
+        if (victory)
+            sudoku::victoryWindow();
+
+        if (submittingEntry) {
+            ImGui::OpenPopup("entry");
+            sudoku::entryPopup();
+        }
     }
-}
+}  
 
 void sudoku::victoryWindow(){
     ImGui::SetNextWindowSize(ImVec2(300, 200));
@@ -97,53 +97,18 @@ void sudoku::printEntries() {
     }
 }
 
-void sudoku::saveGame() {
-    std::string saveName{ "savedGame" };
-    saveName += currentLevel + ".txt";
-    std::ofstream saveFile{ saveName, std::ios::trunc };
-    if (saveFile) {
-        for (auto const& [key, val] : *sudoku::level1::initLevel) {
-            saveFile << (val + "\n");
-        }
-    }
-    saveFile.close();
-}
-
-void sudoku::loadGame() {
-    std::ifstream saveFile{ "savedGame.txt" };
-    std::string value;
-    if (saveFile)
-    {
-        for (auto& [key, val] : *sudoku::level1::initLevel) {
-            std::getline(saveFile, value);
-            if (value.empty())
-                val = " ";
-            else {
-                val = value;
-            }
-        }
-    }
-    else {
-        ImGui::OpenPopup("NoSavedGame");
-        if (ImGui::BeginPopup("No Saved Game found")) {
-        }
-
-        saveFile.close();
-    }
-}
-
 void sudoku::entryPopup() {
     if (ImGui::BeginPopup("entry"))
     {
 
         if (ImGui::Button("Clear", ImVec2(206, buttonHW))) {
-            level1::initLevel->at(key) = std::string(" ");
+            (*sudoku::submission).at(key) = std::string(" ");
             ImGui::CloseCurrentPopup();
             submittingEntry = false;
             victory = sudoku::queryVictory();
         }
         if (ImGui::Button("1", buttonSize)) {
-            level1::initLevel->at(sudoku::key) = std::string("1");
+            (*sudoku::submission).at(key) = std::string("1");
             ImGui::CloseCurrentPopup();
             submittingEntry = false;
             if (sudoku::queryVictory()) {
@@ -226,4 +191,24 @@ void sudoku::entryPopup() {
         }
         ImGui::EndPopup();
     } 
+}
+
+player* sudoku::createPlayer() {
+    static char name[10] = "";
+    //take in info from popups
+    ImGui::SetNextWindowPos(ImVec2(170, (windowW / 2) - 20));
+    ImGui::OpenPopup("Player name");
+    if (ImGui::BeginPopup("Player name")) {
+        ImGui::InputText("playerName", name, 10);
+    }
+    ImGui::SameLine();
+    if (ImGui::Button("Submit")) {
+        ImGui::CloseCurrentPopup();
+        //create player with info. testing required to see if name changes when the input window is closed, or only while it's open
+        ;
+        playerList.emplace_back(player((const char*)name));
+        ImGui::EndPopup();
+        return &(playerList.front());
+    }
+    ImGui::EndPopup();
 }

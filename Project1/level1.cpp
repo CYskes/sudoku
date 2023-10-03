@@ -198,12 +198,9 @@ void level1::initAnswerKey() {
 }
 
 bool level1::queryVictory() {
-    if (
-        *level1::initLevel == level1::AnswerKey
-        )
+    if (*level1::initLevel == level1::AnswerKey)
         return true;
-    else
-        return false;
+    return false;
 }
 
 void level1::clearMaps() {

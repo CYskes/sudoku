@@ -159,6 +159,7 @@
     <ClCompile Include="imgui_tables.cpp" />
     <ClCompile Include="imgui_widgets.cpp" />
     <ClCompile Include="level1.cpp" />
+    <ClCompile Include="player.cpp" />
     <ClCompile Include="RunApp.cpp" />
     <ClCompile Include="Sudoku.cpp" />
     <ClInclude Include="level1.h" />

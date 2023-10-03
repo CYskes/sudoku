@@ -2,6 +2,7 @@
 #include <map>
 #include <string>
 #include "Level1.h"
+#include "player.h"
 
 namespace sudoku {
 
@@ -9,9 +10,8 @@ namespace sudoku {
 	void victoryWindow();
 	void printEntries();	
 	bool queryVictory();
-	void saveGame();
-	void loadGame();
 	void entryPopup();
+	player* createPlayer();
 
 	inline float menuBarSize = 18;
 	inline float windowH = 666 + menuBarSize;
@@ -23,6 +23,8 @@ namespace sudoku {
 	inline bool victory{ false };
 	inline std::string key;
 	inline std::map<std::string, std::string>* submission;
+	inline std::vector<player> playerList{ };
 	inline int currentLevel = 1 ;
+	inline player* currentPlayer{ nullptr };
 }
 
